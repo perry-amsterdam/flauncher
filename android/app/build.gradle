@@ -52,6 +52,8 @@ android {
         targetSdk 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64'
     }
 
     signingConfigs {
@@ -73,13 +75,17 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-        }
+        }	
+
     }
 
     splits {
         abi {
             // https://stackoverflow.com/a/39950584/21037183
             enable gradle.startParameter.taskNames.any { it.contains("assembleRelease") }
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
             universalApk true
         }
     }
