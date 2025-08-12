@@ -23,7 +23,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flauncher/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'flauncher.dart';
@@ -81,7 +81,6 @@ class FLauncherApp extends StatelessWidget
         primarySwatch: _swatch,
         cardColor: _swatch[300],
         canvasColor: _swatch[300],
-        dialogBackgroundColor: _swatch[400],
         scaffoldBackgroundColor: _swatch[400],
         textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor: Colors.white)),
         appBarTheme: const AppBarTheme(elevation: 0, backgroundColor: Colors.transparent),
@@ -94,7 +93,7 @@ class FLauncherApp extends StatelessWidget
           cursorColor: Colors.white,
           selectionColor: _swatch[200],
           selectionHandleColor: _swatch[200],
-        ),
+        ), dialogTheme: DialogThemeData(backgroundColor: _swatch[400]),
       ),
       home: Builder(
         builder: (context) => PopScope(
